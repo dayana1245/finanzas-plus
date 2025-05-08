@@ -86,7 +86,7 @@ color: var(--primary-color)
 }
 
 .image {
-    madthx-wi: 100%;
+    max-width: 100%;
   }
   
   .media {
