@@ -66,6 +66,24 @@ margin: 2rem auto;
 
 }
 
+.media {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre imagen y texto */
+    flex-wrap: wrap; /* Para que se acomode en pantallas pequeñas */
+  }
+  
+  .image img {
+    max-width: 100%;
+    height: auto;
+    width: 150px; /* Tamaño fijo o ajustable */
+  }
+  
+  .content {
+    flex: 1; /* El texto ocupa el resto del espacio */
+    font-size: 16px;
+  }
+  
 .header
 
 {
@@ -85,14 +103,6 @@ color: var(--primary-color)
 
 }
 
-.image {
-    max-width: 100%;
-  }
-  
-  .media {
-    display: flex;
-    align-items: flex-start;
-  }
 
 #balance
 
