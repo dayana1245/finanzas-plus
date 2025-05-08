@@ -85,12 +85,14 @@ color: var(--primary-color)
 
 }
 
-.header img
-
-{
-    width: 100px;
-    height: 50px;
-}
+.img {
+    madthx-wi: 100%;
+  }
+  
+  .media {
+    display: flex;
+    align-items: flex-start;
+  }
 
 #balance
 
