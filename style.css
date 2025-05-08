@@ -85,6 +85,13 @@ color: var(--primary-color)
 
 }
 
+.header img
+
+{
+    width: 100px;
+    height: 50px;
+}
+
 #balance
 
 {
@@ -251,10 +258,6 @@ font-size: 2remx;
 
 }
 
-.img
-{
-    width: 100px;
-    height: 50px;
-}
+
 
 }
