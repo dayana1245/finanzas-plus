@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    
+    content="width=device-width, initial-scale=1.0">
+    
+    <title>FINANZAS 💲​</title>
+    
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+<div class="input-container">
+
+<div class="header">
+
+<h1>FINANZAS PLUS💲​</h1>
+
+</div>
+
+<div id="balance">Balance: $0.00</div>
+
+<form id="transactionform"> 
+
+    <input type="text" id="description" placeholder=" Tipo De Transaccion" required />
+
+    <input type="number" id="amount" placeholder=" 0.01" required />
+
+    <select  id="type" required>
+
+        <option value="Ingresos">Ingresos ⬇️​</option>
+        <option value="Gastos">Gastos ⬆️​</option>
+    
+    </select>
+
+     <button type="submit"> Agregar Transaccion </button>
+
+</form>
+
+</div>
+
+<div class="transactions-container">
+
+<h2>Transacciones💸​</h2>
+
+<div id="transactionlist"></div>
+
+<div class="transaction income">
+
+    <span>Trabajo</span>
+    <span class="transaction-amount-container">$50.000 <button class="delete-btn">Borrar</button></span>
+
+</div>
+
+
+
+</div>
+
+    </div>
+
+    <script src="main.js"> </script>
+
+</body>
+
+</html>
