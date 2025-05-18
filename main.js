@@ -3,7 +3,7 @@ class BudgetTracker {
         this.transactions = [];
         this.form = document.getElementById("transactionForm");
         this.transactionList = document.getElementById("transactionList");
-        this.balanceElement = document.getElementById("balance"); // Fixed: lowercase 'b'
+        this.BalanceElement = document.getElementById("Balance");
 
         this.initEventListeners();
         this.renderTransactions();
@@ -68,9 +68,7 @@ class BudgetTracker {
 
     updateBalance() {
         const total = this.transactions.reduce((sum, t) => sum + t.amount, 0);
-        const formattedTotal = Math.abs(total).toLocaleString("es-CO"); // Fixed: toLocaleString
-        const sign = total < 0 ? "-" : "";
-        this.balanceElement.textContent = `Balance: ${sign}$${formattedTotal}`;
+        this.BalanceElement.textContent = `Balance: $${total.toLocaleString("es-CO")}`;
     }
 }
 
