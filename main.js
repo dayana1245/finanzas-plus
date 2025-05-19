@@ -6,29 +6,55 @@ class BudgetTracker {
         this.BalanceElement = document.getElementById("Balance");
 
         this.initEventListeners();
-        this.renderTransactions();
-        this.updateBalance();
+        this.loadTransactions(); // 👈 carga desde PHP
     }
 
     initEventListeners() {
-        this.form.addEventListener("submit", (e) => {
+        this.form.addEventListener("submit", async (e) => {
             e.preventDefault();
             const description = document.getElementById("description").value;
             const amount = parseFloat(document.getElementById("amount").value);
             const type = document.getElementById("type").value;
 
-            const newTransaction = {
-                id: Date.now(),
-                description,
-                amount: type === "Gastos" ? -Math.abs(amount) : Math.abs(amount),
-                type
-            };
+            const data = new URLSearchParams();
+            data.append("descripcion", description);
+            data.append("monto", amount);
+            data.append("tipo", type);
 
-            this.transactions.push(newTransaction);
+            const response = await fetch("guardar_transaccion.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: data
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                this.loadTransactions(); // 👈 recargar desde BD
+                this.form.reset();
+            } else {
+                alert("Error al guardar: " + result.error);
+            }
+        });
+    }
+
+    async loadTransactions() {
+        const response = await fetch("obtener_transacciones.php");
+        const data = await response.json();
+
+        if (data.success) {
+            this.transactions = data.data.map(t => ({
+                id: t.id,
+                description: t.descripcion,
+                amount: t.tipo === "Gastos" ? -Math.abs(parseFloat(t.monto)) : parseFloat(t.monto),
+                type: t.tipo
+            }));
             this.renderTransactions();
             this.updateBalance();
-            this.form.reset();
-        });
+        } else {
+            alert("Error al cargar transacciones: " + data.error);
+        }
     }
 
     renderTransactions() {
@@ -60,10 +86,21 @@ class BudgetTracker {
         });
     }
 
-    deleteTransaction(id) {
-        this.transactions = this.transactions.filter((t) => t.id !== id);
-        this.renderTransactions();
-        this.updateBalance();
+    async deleteTransaction(id) {
+        const response = await fetch("eliminar_transaccion.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `id=${id}`
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            this.loadTransactions(); // recargar
+        } else {
+            alert("Error al eliminar: " + result.error);
+        }
     }
 
     updateBalance() {
@@ -72,7 +109,6 @@ class BudgetTracker {
     }
 }
 
-// Inicializar la clase cuando se cargue la página
 window.addEventListener("DOMContentLoaded", () => {
     new BudgetTracker();
 });

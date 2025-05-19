@@ -1,366 +1,202 @@
-:root{
-
-  --primary-color:#8e44ad;
-  --secondary-color:#2980b9;
-  --danger-color:#922b21;
-  --card-background:#e8f6f3;
-
-}
-
-*
-
-{
-  margin: 0;
-  padding:0;
-  box-sizing: border-box;
-}
-
-body
-
-{
-
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-  background-color:#d1f2eb;
-  color:#0e6655;
-  line-height: 1.6
-
-}
-
-.app-container
-
-{
-
-display: flex;
-gap: 2rem;
-width: 100%;
-max-width: 1200px;
-margin: 2rem auto;
-
-}
-
-.input-container
-
-{
-
-  flex: 1;
-  background:var(--card-background);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  padding: 2rem;
-  height: fit-content;
-
-}
-
-.transactions-container
-
-{
-
-  flex: 1;
-  background:var(--card-background);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  padding: 2rem;
-  max-height: 500px;
-  overflow-y:auto ;
-
-}
-
-.media {
-  display: flex;
-  align-items: center;
-  gap: 20px; 
-  flex-wrap: wrap; 
-}
-
-.image img {
-  max-width: 100%;
-  height: auto;
-  width: 150px; 
-}
-
-.content {
-  flex: 1; 
-  font-size: 12px;
-}
-
-.header
-
-{
-
-text-align: center;
-margin-bottom: 1.5rem;
-
-}
-
-.header h1
-
-{
-
-font-size: 2rem;
-font-weight: 700;
-color: var(--primary-color)
-
-}
-
-
-#Balance
-
-{
-
-text-align: center;
-font-size: 2.5rem;
-font-weight: 700;
-margin: 1.5rem 0;
-
-}
-
-#transactionform
-
-{
-
-display: grid;
-gap: 1rem;
-
-}
-
-input,
-select,
-button
-
-{
-
-width: 100%;
-padding: 0.75rem;
-border: 1px solid #1b2631 ;
-border-radius: 8px;
-font-size: 1rem;
-
-}
-
-input:focus,
-select:focus
-
-{
-
-outline: none;
-border-color: var(--primary-color);
-box-shadow: 0 0 0 3px rgba(74,144,226, 0.1);
-
-}
-
-button
-
-{
-
-background-color: var(--primary-color);
-color: #fff;
-border:none;
-cursor: pointer;
-font-weight: 600;
-transition: all 300ms ease;
-
-}
-
-button:hover
-
-{
-
-  background: color #3a7bd5;
-  transform: translateY(-2px);
-   
-
-}
-
-#transactionlist
-
-{
-
-margin-top: 1.5rem;
-
-}
-
-.transaction
-
-{
-
-  display: flex;
-  justify-content:space-between ;
-  align-items: center;
-  padding: 1rem;
-  border: 8px;
-  margin-bottom: 0.5rem;
-  transition: all 300ms ease;
-
-}
-
-.transaction.income
-
-{
-
-  background-color: rgba(46, 204, 113, 0.1);
-
-}
-
-.transaction.expense
-
-{
-
-  background-color: rgba(231, 76, 60, 0.1);
-
-}
-
-.transaction:hover
-
-{
-
-  background-color: rgba(0, 0, 0, 0.05);
-
-}
-
-.transaction-amount-container
-
-{
-
-display: flex;
-flex-direction: column;
-align-items:  flex-end  ;
-
-}
-
-.delete-btn
-
-{
-
-  background-color:var(--danger-color);
-  padding: 8px;
-  font-size: 0.8rem;
-  border-radius: 4px ;
-  transition: all 300ms ease;
-
-}
-
-.delete-btn:hover
-
-{
-
-  background-color: #c0392b;
-  transform: translateY(0);
-
-}
-
-@media (max-width:768px)
-
-{
-
-.app-container
-
-{   
-
-  flex-direction: column;
-  padding: 1rem;
-
-}
-
-#Balance
-
-{
-
-font-size: 2remx;
-
-}
-
-#login-container {
-  width: 300px;
-  margin: 80px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  text-align: center;
-  background-color: #f5f5f5;
-}
-
-#login-form input {
-  width: 90%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
-  border: 1px solid #999;
-}
-
-#login-form button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Centrado general del body */
-body {
-margin: 0;
-padding: 0;
-font-family: Arial, sans-serif;
-background-color: #d0f4f1; /* color claro */
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-/* Contenedor del login */
-.login-container {
-background-color: #ffffff;
-padding: 30px;
-border-radius: 15px;
-box-shadow: 0 0 10px rgba(0,0,0,0.1);
-text-align: center;
-width: 90%;
-max-width: 400px;
-}
-
-/* Logo */
-.login-container img {
-width: 100px;
-max-width: 100%;
-height: auto;
-display: block;
-margin: 0 auto 10px auto;
-}
-
-/* Título */
-.login-container h1 {
-margin-bottom: 20px;
-color: #333;
-}
-
-/* Campos del formulario */
-.login-container input {
-width: 100%;
-padding: 12px;
-margin: 10px 0;
-border: 1px solid #ccc;
-border-radius: 8px;
-font-size: 16px;
-}
-
-/* Botón */
-.login-container button {
-width: 100%;
-padding: 12px;
-background-color: #28a745;
-border: none;
-color: white;
-font-size: 16px;
-border-radius: 8px;
-cursor: pointer;
-transition: background-color 0.3s;
-}
-
-.login-container button:hover {
-background-color: #218838;
-}
-
-
-}
+:root {
+    --primary-color: #8e44ad;
+    --secondary-color: #2980b9;
+    --danger-color: #922b21;
+    --card-background: #e8f6f3;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d9f4ed;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .app-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .input-container,
+  .transactions-container {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    flex: 1;
+  }
+  
+  .media {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .media .image img {
+    max-width: 100%;
+    height: auto;
+    width: 150px;
+  }
+  
+  .media .content {
+    flex: 1;
+    font-size: 14px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  
+  #Balance {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+  }
+  
+  #transactionForm {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  input,
+  select,
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #1b2631;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 300ms ease;
+  }
+  
+  button:hover {
+    background-color: #3a7bd5;
+    transform: translateY(-2px);
+  }
+  
+  #transactionList {
+    margin-top: 1.5rem;
+  }
+  
+  .transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 300ms ease;
+  }
+  
+  .transaction.income {
+    background-color: rgba(46, 204, 113, 0.1);
+  }
+  
+  .transaction.expense {
+    background-color: rgba(231, 76, 60, 0.1);
+  }
+  
+  .transaction:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .transaction-amount-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .delete-btn {
+    background-color: var(--danger-color);
+    padding: 8px;
+    font-size: 0.8rem;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: all 300ms ease;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+  }
+  
+  /* Estilo para el formulario de login */
+  #loginForm {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+  }
+  
+  #loginForm input {
+    margin: 10px 0;
+  }
+  
+  #loginForm button {
+    background-color: #28a745;
+  }
+  
+  #loginForm button:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsivo para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .app-container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    #Balance {
+      font-size: 2rem;
+    }
+  
+    .media {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .media .image img {
+      width: 100px;
+    }
+  }
+  

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FINANZAS 💲</title>
+  <link rel="icon" type="image/jpg" href="images/favicon.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Formulario de Login -->
+  <form id="loginForm">
+    <input type="email" name="correo" placeholder="Correo electrónico" required />
+    <input type="password" name="clave" placeholder="Contraseña" required />
+    <button type="submit">Entrar</button>
+    <p id="loginError" style="color: red;"></p>
+  </form>
+
+  <!-- Contenido de la App -->
+  <div class="app-container" style="display: none;">
+    <div class="input-container">
+      <div class="media">
+        <div class="image">
+          <img src="images/Finanazas_Logo.png" alt="Logo de Finanzas" />
+        </div>
+        <div class="content">
+          <p>Bienvenido al portal de Finanzas. Aquí encontrarás recursos para mejorar tu educación financiera.</p>
+        </div>
+      </div>
+
+      <div class="header">
+        <h1>FINANZAS PLUS 💲</h1>
+      </div>
+
+      <div id="Balance">Balance: $0.000</div>
+
+      <form id="transactionForm">
+        <input type="text" id="description" placeholder="Tipo de Transacción" required />
+        <input type="number" id="amount" placeholder="0.01" required step="0.01" min="0" />
+        <select id="type" required>
+          <option value="Ingresos">Ingresos ⬇️</option>
+          <option value="Gastos">Gastos ⬆️</option>
+        </select>
+        <button type="submit">Agregar Transacción</button>
+      </form>
+    </div>
+
+    <div class="transactions-container">
+      <h2>Transacciones 💸</h2>
+      <div id="transactionList"></div>
+    </div>
+  </div>
+
+  <!-- Lógica del Login -->
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const response = await fetch("login.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        document.getElementById("loginForm").style.display = "none";
+        document.querySelector(".app-container").style.display = "block";
+      } else {
+        document.getElementById("loginError").textContent = data.error;
+      }
+    });
+  </script>
+
+  <!-- Tu lógica JS de finanzas -->
+  <script src="main.js"></script>
+</body>
+
+</html>
